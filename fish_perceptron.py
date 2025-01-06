@@ -12,18 +12,17 @@ with open('label_encoder_fish_Perseptron.pkl', 'rb') as encoder_file:
 
 
 # Judul Aplikasi
-st.title('Prediksi Jenis Buah')
+st.title('Prediksi Jenis fish')
 
-# Input untuk setiap fitur buah
-diameter = st.number_input('Diameter:', min_value=0.0)
+# Input untuk setiap fitur fish
+length = st.number_input('Diameter:', min_value=0.0)
 weight = st.number_input('Weight:', min_value=0.0)
-red = st.number_input('Red:', min_value=0.0)
-green = st.number_input('Green:', min_value=0.0)
-blue = st.number_input('Blue:', min_value=0.0)
+w_l_ratio = st.number_input('Red:', min_value=0.0)
+
 
 # Tombol untuk memprediksi spesies buah
 if st.button('Prediksi Buah'):
-    features = np.array([[diameter, weight, red, green, blue]])
+    features = np.array([[length , weight, w_l_ratio]])
     # Melakukan prediksi menggunakan model Perceptron
     species_encoded = model.predict(features)[0]
     # Mengembalikan hasil prediksi ke label asli menggunakan encoder
